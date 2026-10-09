@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobAI Hub - แพลตฟอร์มหางานและสมัครงานออนไลน์ด้วย AI</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Kanit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Kanit', sans-serif; background-color: #f8fafc; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .active-tab {
+            border-bottom: 3px solid #2563eb;
+            color: #2563eb;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white text-xl font-bold shadow-md shadow-blue-200">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold gradient-text">JobAI Hub</span>
+                        <span class="text-xs text-slate-400 block -mt-1">Smart Career Assistant</span>
+                    </div>
+                </div>
+
+                <nav id="desktop-nav" class="hidden md:flex space-x-6 text-sm font-medium text-slate-600">
+                    <button onclick="switchTab('resume')" id="nav-resume" data-role-nav="jobseeker" class="nav-btn py-5 active-tab hover:text-blue-600 transition">
+                        <i class="fa-solid fa-file-lines mr-1.5"></i>1. AI วิเคราะห์ Resume
+                    </button>
+                    <button onclick="switchTab('match')" id="nav-match" data-role-nav="jobseeker" class="nav-btn py-5 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-bullseye mr-1.5"></i>2. AI จับคู่งาน
+                    </button>
+                    <button onclick="switchTab('apply')" id="nav-apply" data-role-nav="jobseeker" class="nav-btn py-5 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-paper-plane mr-1.5"></i>3. สมัครงานออนไลน์
+                    </button>
+                    <button onclick="switchTab('coach')" id="nav-coach" data-role-nav="jobseeker" class="nav-btn py-5 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-comments mr-1.5"></i>4. AI โค้ชสัมภาษณ์
+                    </button>
+                    <button onclick="switchTab('tracking')" id="nav-tracking" data-role-nav="jobseeker" class="nav-btn py-5 hover:text-blue-600 transition">
+                        <i class="fa-solid fa-chart-line mr-1.5"></i>5. ติดตามผล & รีวิว
+                    </button>
+                    <button onclick="switchTab('employer')" id="nav-employer" data-role-nav="employer" class="nav-btn py-5 hover:text-blue-600 transition hidden">
+                        <i class="fa-solid fa-building mr-1.5"></i>Employer
+                    </button>
+                </nav>
+
+                <div class="flex items-center space-x-3">
+                    <div class="relative">
+                        <button id="bell" class="relative" aria-label="การแจ้งเตือน"><i class="fa-bell fa-regular text-slate-500 text-xl hover:text-blue-600"></i>
+                            <span id="bell-badge" class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center"></span></button>
+                        <div id="notif-panel" class="hidden absolute right-0 mt-3 w-80 max-w-[85vw] bg-white border border-slate-200 rounded-xl shadow-xl z-[60]"></div>
+                    </div>
+                    <div class="flex items-center space-x-2 pl-3 border-l border-slate-200">
+                        <img id="profile-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" class="w-9 h-9 rounded-full object-cover border border-slate-300" alt="Profile">
+                        <div class="hidden lg:block"><span id="current-user-name" class="text-sm font-medium text-slate-700 block"></span><span id="current-user-role" class="text-[10px] text-slate-400 block"></span></div>
+                    </div>
+                    <div id="auth-actions"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Bar -->
+    <div class="md:hidden bg-white border-b border-slate-200 px-4 py-2 flex overflow-x-auto space-x-4 text-xs font-medium no-scrollbar">
+        <button onclick=\"switchTab('resume')\" data-mtab=\"resume\" class=\"whitespace-nowrap px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 font-semibold">1. Resume</button>
+        <button onclick=\"switchTab('match')\" data-mtab=\"match\" class=\"whitespace-nowrap px-3 py-1.5 rounded-full bg-slate-100 text-slate-600">2. จับคู่งาน</button>
+        <button onclick=\"switchTab('apply')\" data-mtab=\"apply\" class=\"whitespace-nowrap px-3 py-1.5 rounded-full bg-slate-100 text-slate-600">3. สมัครงาน</button>
+        <button onclick=\"switchTab('coach')\" data-mtab=\"coach\" class=\"whitespace-nowrap px-3 py-1.5 rounded-full bg-slate-100 text-slate-600">4. โค้ชสัมภาษณ์</button>
+        <button onclick=\"switchTab('tracking')\" data-mtab=\"tracking\" class=\"whitespace-nowrap px-3 py-1.5 rounded-full bg-slate-100 text-slate-600">5. ติดตามผล</button>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+
+        <!-- ==================== TAB 1: AI RESUME ANALYSIS ==================== -->
+        <section id="tab-resume" data-role-section="jobseeker" class="tab-content block space-y-6">
+            <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
+                <div class="max-w-2xl relative z-10">
+                    <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold mb-3">ขั้นตอนที่ 1 : AI Resume Analyzer</span>
+                    <h1 class="text-2xl sm:text-3xl font-bold mb-2">วิเคราะห์และอัปเกรด เรซูเม่ด้วย AI</h1>
+                    <p class="text-blue-100 text-sm sm:text-base mb-4">ระบบ AI ช่วยตรวจสอบจุดแข็ง ค้นหาจุดที่ต้องปรับปรุง และคำนวณคะแนน Resume ความสมบูรณ์แบบเพื่อโอกาสได้งานที่สูงขึ้น</p>
+                </div>
+                <i class="fa-solid fa-file-invoice text-9xl absolute -bottom-8 -right-8 text-white/10 transform -rotate-12"></i>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Resume Upload Card -->
+                <div class="lg:col-span-1 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+                            <i class="fa-solid fa-cloud-arrow-up text-blue-600 mr-2"></i> อัปโหลด Resume
+                        </h2>
+                        <div class="border-2 border-dashed border-blue-200 rounded-xl p-8 text-center bg-blue-50/50 hover:bg-blue-50 transition cursor-pointer" id="drop-zone">
+                            <i class="fa-solid fa-file-pdf text-4xl text-blue-500 mb-3"></i>
+                            <p class="text-sm font-medium text-slate-700">ลากไฟล์ PDF / Word มาวางที่นี่</p>
+                            <p class="text-xs text-slate-400 mt-1">หรือคลิกเพื่อเลือกไฟล์ (สูงสุด 10MB)</p>
+                            <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-medium shadow-sm hover:bg-blue-700 transition">เลือกไฟล์</button>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <p class="text-xs text-slate-500"><i class="fa-solid fa-circle-check text-green-500 mr-1"></i> รองรับภาษาไทยและอังกฤษ</p>
+                        <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-shield-halved text-blue-500 mr-1"></i> ข้อมูลของคุณได้รับการปกป้องด้วยความเป็นส่วนตัว</p>
+                    </div>
+                </div>
+
+                <div id="resume-result" class="lg:col-span-2 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"></div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 2: AI JOB MATCHING ==================== -->
+        <section id="tab-match" data-role-section="jobseeker" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold mb-2">ขั้นตอนที่ 2 : AI Job Matching Engine</span>
+                        <h1 class="text-2xl font-bold text-slate-800">งานที่ AI คัดสรรและแมตช์ตามทักษะของคุณ</h1>
+                    </div>
+                    <!-- Search / Filter -->
+                    <div class="flex flex-wrap gap-2">
+                        <input id="job-search" type="text" placeholder="ค้นหาตำแหน่ง, ทักษะ..." class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs w-48 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <select id="job-sort" class="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600">
+                            <option value="match">เรียงตาม % ความเหมาะสม</option>
+                            <option value="salary">เงินเดือนสูงสุด</option>
+                            <option value="latest">ประกาศล่าสุด</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="job-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </section>
+
+        <!-- ==================== TAB 3: ONLINE APPLICATION ==================== -->
+        <section id="tab-apply" data-role-section="jobseeker" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm max-w-3xl mx-auto">
+                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold mb-2">ขั้นตอนที่ 3 : Online Application Form</span>
+                <h1 class="text-2xl font-bold text-slate-800 mb-6">ส่งใบสมัครงานยื่นตรงถึง HR (One-Click Apply)</h1>
+
+                <div id="apply-root"></div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 4: AI INTERVIEW COACH ==================== -->
+        <section id="tab-coach" data-role-section="jobseeker" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <span class="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-semibold mb-2">ขั้นตอนที่ 4 : AI Interview Simulation</span>
+                <h1 class="text-2xl font-bold text-slate-800 mb-2">ระบบจำลองการสัมภาษณ์งานและคำแนะนำ AI</h1>
+                <p class="text-xs text-slate-500">ฝึกซ้อมตอบคำถามสัมภาษณ์จริงตามตำแหน่งงาน UX/UI Specialist พร้อมประเมินคำตอบทันที</p>
+            </div>
+
+            <div id="coach-root" class="grid grid-cols-1 lg:grid-cols-3 gap-6"></div>
+        </section>
+
+        <!-- ==================== TAB 5: TRACKING & REVIEWS ==================== -->
+        <section id="tab-tracking" data-role-section="jobseeker" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold mb-2">ขั้นตอนที่ 5 : Application Tracking & Company Reviews</span>
+                <h1 class="text-2xl font-bold text-slate-800">ติดตามสถานะสมัครงาน & รีวิวบริษัทจากผู้ใช้จริง</h1>
+            </div>
+
+            <div id="kanban" class="grid grid-cols-1 md:grid-cols-4 gap-4"></div>
+            <div id="reviews-root"></div>
+        </section>
+
+        <!-- ==================== EMPLOYER PORTAL ==================== -->
+        <section id="tab-employer" data-role-section="employer" class="tab-content hidden space-y-6">
+            <div class="bg-gradient-to-r from-slate-900 to-blue-900 rounded-2xl p-6 text-white shadow-lg">
+                <span class="inline-block px-3 py-1 bg-white/10 rounded-full text-xs font-semibold mb-2">Employer Portal</span>
+                <h1 class="text-2xl font-bold">จัดการประกาศงานและใบสมัคร</h1>
+                <p class="text-sm text-blue-100 mt-1">บริษัทสามารถลงงานเอง ดูผู้สมัคร และอัปเดตสถานะใบสมัครได้</p>
+            </div>
+            <div id="employer-root"></div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-400 space-y-2">
+            <p>JobAI Hub - ระบบแพลตฟอร์มหางานและสมัครงานออนไลน์ด้วยปัญญาประดิษฐ์ (Production-ready demo architecture)</p>
+            <p>© 2026 JobAI Hub. Built following the Customer Journey Map Design Framework.</p>
+        </div>
+    </footer>
+
+    <div id="toast-root" class="fixed top-20 right-4 z-[100] space-y-2"></div>
+    <div id="modal-root"></div>
+    <script src="app.js"></script>
+</body>
+</html>

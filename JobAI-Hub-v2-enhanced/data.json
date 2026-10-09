@@ -1,0 +1,210 @@
+{
+  "nextId": 102,
+  "resume": {
+    "filename": "Somchai_Resume_2026.pdf",
+    "analyzedAt": "2026-09-28T08:53:26.860Z",
+    "score": 85,
+    "skills": [
+      "UX/UI Design",
+      "Figma",
+      "User Research",
+      "HTML/CSS"
+    ],
+    "years": "3 ปี 6 เดือน",
+    "recs": [
+      {
+        "type": "warn",
+        "title": "เพิ่มเชิงปริมาณผลงาน (Quantifiable Metrics)",
+        "text": "ส่วนประวัติการทำงานขาดตัวเลขวัดผล เช่น \"ออกแบบแอปพลิเคชันใหม่ ช่วยเพิ่มยอดผู้ใช้งานขึ้น 35% ภายใน 3 เดือน\""
+      },
+      {
+        "type": "info",
+        "title": "AI ปรับคำโปรไฟล์อัจฉริยะ (Summary Formatting)",
+        "text": "แนะนำให้เพิ่ม Key Action Verbs ในส่วน Summary เพื่อผ่านระบบคัดกรอง ATS อัตโนมัติขององค์กรใหญ่"
+      }
+    ]
+  },
+  "jobs": [
+    {
+      "id": 1,
+      "company": "TechCorp Thailand Ltd.",
+      "title": "Senior UX/UI Designer",
+      "location": "กรุงเทพฯ (BTS อโศก / Hybrid)",
+      "salaryMin": 55000,
+      "salaryMax": 75000,
+      "exp": "3-5 ปี",
+      "tags": [
+        "Figma",
+        "Design System",
+        "User Research"
+      ],
+      "base": 98,
+      "postedAt": "2026-09-28T06:53:26.860Z",
+      "desc": "นำทีมออกแบบผลิตภัณฑ์หลักขององค์กร วาง Design System และทำงานใกล้ชิดกับ Product และ Developer",
+      "match": 85
+    },
+    {
+      "id": 2,
+      "company": "InnoFinTech Co., Ltd.",
+      "title": "Product Designer (Mobile)",
+      "location": "สีลม, กรุงเทพฯ (Work from Home 100%)",
+      "salaryMin": 60000,
+      "salaryMax": 80000,
+      "exp": "2-4 ปี",
+      "tags": [
+        "Mobile App",
+        "Wireframing",
+        "Fintech"
+      ],
+      "base": 91,
+      "postedAt": "2026-09-27T08:53:26.860Z",
+      "desc": "ออกแบบประสบการณ์ผู้ใช้แอปการเงินบนมือถือ ตั้งแต่ Wireframe จนถึง Prototype พร้อมทดสอบกับผู้ใช้จริง",
+      "match": 55
+    },
+    {
+      "id": 3,
+      "company": "Global Digital Agency",
+      "title": "UI Developer & Designer",
+      "location": "พระราม 9, กรุงเทพฯ",
+      "salaryMin": 45000,
+      "salaryMax": 55000,
+      "exp": "2+ ปี",
+      "tags": [
+        "HTML/CSS",
+        "Figma",
+        "Tailwind"
+      ],
+      "base": 82,
+      "postedAt": "2026-09-25T08:53:26.860Z",
+      "desc": "ออกแบบหน้าเว็บด้วย Figma และลงมือพัฒนาเป็น HTML/CSS ให้ลูกค้าหลายอุตสาหกรรม",
+      "match": 76
+    },
+    {
+      "id": 4,
+      "company": "CloudNine Software",
+      "title": "UX Researcher",
+      "location": "รัชดา, กรุงเทพฯ (Hybrid)",
+      "salaryMin": 50000,
+      "salaryMax": 70000,
+      "exp": "2-4 ปี",
+      "tags": [
+        "User Research",
+        "Prototyping",
+        "Figma"
+      ],
+      "base": 88,
+      "postedAt": "2026-09-27T22:53:26.860Z",
+      "desc": "วางแผนและทำ User Research สรุปข้อค้นพบให้ทีมออกแบบและผลิตภัณฑ์นำไปใช้ตัดสินใจ",
+      "match": 79
+    },
+    {
+      "id": 5,
+      "company": "PixelWorks Studio",
+      "title": "Frontend Designer",
+      "location": "เชียงใหม่ (Remote ได้)",
+      "salaryMin": 40000,
+      "salaryMax": 60000,
+      "exp": "1-3 ปี",
+      "tags": [
+        "HTML/CSS",
+        "JavaScript",
+        "Tailwind"
+      ],
+      "base": 79,
+      "postedAt": "2026-09-26T08:53:26.860Z",
+      "desc": "สร้างหน้าเว็บที่สวยและใช้งานได้จริงด้วย Tailwind และ JavaScript ร่วมกับทีมออกแบบ",
+      "match": 61
+    },
+    {
+      "id": 6,
+      "company": "HealthPlus Digital",
+      "title": "UX/UI Designer (Healthtech)",
+      "location": "สาทร, กรุงเทพฯ",
+      "salaryMin": 52000,
+      "salaryMax": 68000,
+      "exp": "3+ ปี",
+      "tags": [
+        "UX/UI Design",
+        "Design System",
+        "Mobile App"
+      ],
+      "base": 86,
+      "postedAt": "2026-09-27T02:53:26.860Z",
+      "desc": "ออกแบบแอปสุขภาพที่ใช้งานง่ายสำหรับผู้ใช้ทุกช่วงวัย พร้อมดูแล Design System ของแพลตฟอร์ม",
+      "match": 65
+    }
+  ],
+  "applications": [
+    {
+      "id": 1,
+      "jobId": 3,
+      "title": "UI Developer & Designer",
+      "company": "Global Digital Agency",
+      "status": "applied",
+      "appliedAt": "2026-09-26T08:53:26.860Z"
+    },
+    {
+      "id": 2,
+      "jobId": 1,
+      "title": "Senior UX/UI Designer",
+      "company": "TechCorp Thailand Ltd.",
+      "status": "interview",
+      "appliedAt": "2026-09-23T08:53:26.860Z",
+      "interviewAt": "2026-10-05T07:00:00.000Z"
+    },
+    {
+      "id": 100,
+      "jobId": 6,
+      "title": "UX/UI Designer (Healthtech)",
+      "company": "HealthPlus Digital",
+      "status": "applied",
+      "appliedAt": "2026-09-28T08:56:04.695Z",
+      "name": "นาย สมชาย ใจดี",
+      "email": "somchai.j@email.com",
+      "portfolio": "https://behance.net/somchai-ux",
+      "coverLetter": "เรียน ทีมงาน HR HealthPlus Digital\nผมมีความสนใจในตำแหน่ง UX/UI Designer (Healthtech) เป็นอย่างมาก ด้วยประสบการณ์ 3 ปี 6 เดือน ในสายงานออกแบบ และมีทักษะด้าน UX/UI Design, Figma, User Research ซึ่งตรงกับความต้องการของตำแหน่งงานนี้\nผมพร้อมร่วมสร้างคุณค่าให้ทีม และยินดีเข้ารับการสัมภาษณ์ในเวลาที่สะดวก\nขอแสดงความนับถือ\nนาย สมชาย ใจดี",
+      "resumeName": "Somchai_Resume_2026.pdf",
+      "match": 65
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "company": "TechCorp Thailand Ltd.",
+      "position": "Senior UI Designer",
+      "rating": 5,
+      "comment": "กระบวนการสัมภาษณ์ 2 รอบ บรรยากาศเป็นกันเองมาก AI Coach ช่วยเก็งคำถามเกี่ยวกับ Design System ให้ ตรงกับที่ HR ถามเกือบ 90% รู้ผลไวภายใน 3 วันทำการ",
+      "type": "ผู้สมัครที่ได้รับการว่าจ้างจริง",
+      "createdAt": "2026-06-20T08:53:26.860Z"
+    },
+    {
+      "id": 2,
+      "company": "InnoFinTech Co., Ltd.",
+      "position": "Product Designer",
+      "rating": 4,
+      "comment": "มี Take-home Design Test ให้ทำ เวลา 3 วัน โจทย์ค่อนข้างท้าทายแต่ทีมงาน Feedback ละเอียดมาก ได้ประโยชน์สุดๆ สวัสดิการและเงินเดือนตรงตามที่แจ้งไว้",
+      "type": "ผู้รับการสัมภาษณ์",
+      "createdAt": "2026-05-21T08:53:26.860Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 101,
+      "text": "ส่งใบสมัครตำแหน่ง UX/UI Designer (Healthtech) ไปยัง HealthPlus Digital เรียบร้อยแล้ว",
+      "read": false,
+      "createdAt": "2026-09-28T08:56:04.695Z"
+    },
+    {
+      "id": 1,
+      "text": "TechCorp Thailand นัดสัมภาษณ์ตำแหน่ง Senior UX/UI Designer แล้ว เตรียมตัวกับ AI โค้ชได้เลย",
+      "read": false,
+      "createdAt": "2026-09-28T05:53:26.860Z"
+    },
+    {
+      "id": 2,
+      "text": "HR ของ Global Digital Agency เปิดดูเรซูเม่ของคุณแล้ว",
+      "read": false,
+      "createdAt": "2026-09-27T12:53:26.860Z"
+    }
+  ]
+}
