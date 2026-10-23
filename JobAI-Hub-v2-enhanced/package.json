@@ -1,3 +1,0 @@
-{
-  "name":"jobai-backend","version":"2.1.0","main":"server.js","scripts":{"start":"node server.js"},"dependencies":{"bcryptjs":"^2.4.3","express":"^4.21.2","jsonwebtoken":"^9.0.2","mammoth":"^1.9.1","pdf-parse":"^1.1.1","pg":"^8.16.3"}
-}
