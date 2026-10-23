@@ -1,0 +1,23 @@
+สมชาย ใจดี (Somchai Jaidee)
+UX/UI Designer
+อีเมล: somchai.j@email.com | โทร: 081-234-5678 | Portfolio: https://behance.net/somchai-ux
+
+SUMMARY / สรุปโปรไฟล์
+UX/UI Designer ประสบการณ์ 3 ปี 6 เดือน เชี่ยวชาญการออกแบบแอปพลิเคชันและเว็บไซต์ที่เน้นผู้ใช้เป็นศูนย์กลาง
+ถนัดการทำ User Research, Wireframe และ Prototype ใน Figma และทำงานใกล้ชิดกับทีม Developer
+
+EXPERIENCE / ประสบการณ์การทำงาน
+UX/UI Designer — BrightApp Co., Ltd. (2023 - ปัจจุบัน)
+- ออกแบบแอปจองคิวร้านอาหารใหม่ทั้งหมดใน Figma ทำให้ผู้ใช้จองสำเร็จเพิ่มขึ้น 35% ภายใน 3 เดือน
+- ทำ User Research และ Usability Testing กับผู้ใช้จริง 24 คน เพื่อปรับปรุงหน้า Checkout
+- ส่งมอบงานให้ทีม Developer พร้อม Spec และร่วมพัฒนาหน้าเว็บด้วย HTML/CSS
+
+Junior UI Designer — Creative Pixel Studio (2021 - 2023)
+- ออกแบบหน้าเว็บไซต์ให้ลูกค้ามากกว่า 12 ราย ทั้งธุรกิจค้าปลีกและการศึกษา
+- จัดทำ Wireframe และ Prototype เพื่อนำเสนอลูกค้า ลดรอบการแก้งานลง 40%
+
+EDUCATION / การศึกษา
+ปริญญาตรี สาขาวิชาการออกแบบนิเทศศิลป์ มหาวิทยาลัยบูรพา (2017 - 2021) เกรดเฉลี่ย 3.42
+
+SKILLS / ทักษะ
+UX/UI Design, Figma, User Research, Wireframing, Prototyping, HTML/CSS, Communication

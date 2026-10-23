@@ -1,0 +1,18 @@
+ณัฐยา ศรีสุข
+Frontend Developer
+nattaya.dev@gmail.com
+
+ประวัติการทำงาน
+Frontend Developer บริษัท WebWorks (2024 - ปัจจุบัน)
+- พัฒนาเว็บแอปด้วย React และ JavaScript
+- ทำงานร่วมกับทีม Designer แปลงงานจาก Figma เป็นหน้าเว็บด้วย Tailwind
+- ดูแลโค้ดด้วย Git และ GitHub
+
+Intern Web Developer บริษัท StartUpHub (2023 - 2024)
+- เขียน HTML/CSS และเชื่อมต่อ API ด้วย Node.js
+
+การศึกษา
+วิทยาศาสตรบัณฑิต วิทยาการคอมพิวเตอร์ มหาวิทยาลัยบูรพา (2020 - 2024)
+
+ทักษะ
+JavaScript, React, Node.js, HTML/CSS, Tailwind, Git, SQL

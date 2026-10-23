@@ -1,0 +1,43 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-password123}
+      POSTGRES_DB: ${DB_NAME:-jobai_db}
+    # ไม่เปิดพอร์ตฐานข้อมูลออกนอกเครื่อง ถ้าต้องต่อด้วย pgAdmin/DBeaver ให้เอา # ออก (ผูกกับ localhost เท่านั้น)
+    # ports:
+    #   - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-admin} -d ${DB_NAME:-jobai_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  backend:
+    build: .
+    container_name: jobai_backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: ${DB_USER:-admin}
+      DB_PASSWORD: ${DB_PASSWORD:-password123}
+      DB_NAME: ${DB_NAME:-jobai_db}
+      JWT_SECRET: ${JWT_SECRET:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-6-luna}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

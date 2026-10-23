@@ -1,0 +1,20 @@
+{
+  "name": "jobai-hub",
+  "version": "2.2.0",
+  "private": true,
+  "description": "JobAI Hub - แพลตฟอร์มหางานและสมัครงานออนไลน์ด้วย AI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/analyzer.test.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mammoth": "^1.9.1",
+    "pdf-parse": "^1.1.1",
+    "pg": "^8.16.3"
+  }
+}
